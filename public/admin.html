@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sanctuary — Board Member Panel</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>The Sanctuary</h1>
+    <p class="tagline">Board Member Panel</p>
+    <nav class="header-nav">
+      <a href="/">Back to Community Board</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Login -->
+    <div id="login-section" class="admin-login-bar">
+      <label for="admin-key" style="font-weight:500; white-space:nowrap;">Board Access Key:</label>
+      <input type="password" id="admin-key" placeholder="Enter board access key">
+      <button id="login-btn" class="btn btn-primary btn-sm">Authenticate</button>
+    </div>
+
+    <!-- Admin Content (hidden until authenticated) -->
+    <section id="admin-content" style="display:none;">
+      <h2 class="section-title">All Submissions</h2>
+      <div id="admin-list">
+        <div class="empty-state">Loading...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    The Sanctuary Community Board — Confidential
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

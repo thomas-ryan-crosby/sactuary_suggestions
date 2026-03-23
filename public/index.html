@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sanctuary — Community Suggestion Box</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>The Sanctuary</h1>
+    <p class="tagline">Community Suggestion Box</p>
+    <nav class="header-nav">
+      <a href="/admin.html">Board Member Access</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Submission Form -->
+    <section>
+      <h2 class="section-title">Share Your Suggestion</h2>
+      <div class="form-card">
+        <form id="suggestion-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="e.g. Jane Smith">
+            </div>
+            <div class="form-group">
+              <label for="address">Your Address</label>
+              <input type="text" id="address" name="address" required placeholder="e.g. 14 Sanctuary Lane">
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="suggestion">Your Suggestion</label>
+            <textarea id="suggestion" name="suggestion" required placeholder="What would you like to share with the community?"></textarea>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="is_private" name="is_private">
+            <label for="is_private">Make this submission private (visible only to the board)</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Public Suggestions List -->
+    <section>
+      <h2 class="section-title">Community Suggestions</h2>
+      <div id="suggestions-list" class="cards-grid">
+        <div class="empty-state">Loading suggestions...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    The Sanctuary Community Board
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
