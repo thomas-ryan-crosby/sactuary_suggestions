@@ -60,7 +60,7 @@
 
   function renderCard(item, alreadyPromoted) {
     const card = document.createElement('div');
-    card.className = 'suggestion-card';
+    card.className = 'suggestion-card' + (item.is_private ? ' card-anonymous' : '');
 
     let responseHtml = '';
     if (item.board_response) {
@@ -71,12 +71,14 @@
         </div>`;
     }
 
+    const authorHtml = item.is_private
+      ? `<div class="card-author anonymous-author">Anonymous Resident</div>`
+      : `<div class="card-author">${escapeHtml(item.name)}</div>
+         <div class="card-address">${escapeHtml(item.address)}</div>`;
+
     card.innerHTML = `
       <div class="card-header">
-        <div>
-          <div class="card-author">${escapeHtml(item.name)}</div>
-          <div class="card-address">${escapeHtml(item.address)}</div>
-        </div>
+        <div>${authorHtml}</div>
         <button class="promote-btn ${alreadyPromoted ? 'promoted' : ''}" data-id="${item.id}" ${alreadyPromoted ? 'disabled' : ''} title="${alreadyPromoted ? 'You promoted this' : 'Promote this suggestion'}">
           <span class="arrow">&#9650;</span>
           <span class="count">${item.promotions}</span>

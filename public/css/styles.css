@@ -269,6 +269,15 @@ body {
   margin-top: 0.1rem;
 }
 
+.card-anonymous {
+  border-left: 3px solid var(--color-muted);
+}
+
+.anonymous-author {
+  font-style: italic;
+  color: var(--color-muted);
+}
+
 .card-body {
   font-size: 0.95rem;
   line-height: 1.7;

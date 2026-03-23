@@ -40,10 +40,10 @@ app.post('/api/suggestions', async (req, res) => {
   }
 });
 
-// Get all public suggestions (sorted by promotions)
+// Get all suggestions for residents (private ones are anonymized)
 app.get('/api/suggestions', async (req, res) => {
   try {
-    res.json(await db.getPublicSuggestions());
+    res.json(await db.getResidentSuggestions());
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
@@ -58,7 +58,6 @@ app.post('/api/suggestions/:id/promote', async (req, res) => {
 
     const item = await db.getSuggestionById(req.params.id);
     if (!item) return res.status(404).json({ error: 'Suggestion not found' });
-    if (item.is_private) return res.status(403).json({ error: 'Cannot promote private suggestions' });
 
     const result = await db.promoteSuggestion(req.params.id, voter_uid);
     if (!result.success) {
