@@ -507,7 +507,8 @@ body {
 .badge-private {
   background: var(--color-danger);
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .badge-public {
