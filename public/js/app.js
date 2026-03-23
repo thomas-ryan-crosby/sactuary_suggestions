@@ -77,14 +77,14 @@
           <div class="card-author">${escapeHtml(item.name)}</div>
           <div class="card-address">${escapeHtml(item.address)}</div>
         </div>
+        <button class="promote-btn ${alreadyPromoted ? 'promoted' : ''}" data-id="${item.id}" ${alreadyPromoted ? 'disabled' : ''}>
+          <span class="arrow">&#9650;</span>
+          <span class="count">${item.promotions}</span>
+        </button>
       </div>
       <div class="card-body">${escapeHtml(item.suggestion)}</div>
       <div class="card-footer">
         <span class="card-date">${formatDate(item.created_at)}</span>
-        <button class="promote-btn ${alreadyPromoted ? 'promoted' : ''}" data-id="${item.id}" ${alreadyPromoted ? 'disabled' : ''}>
-          <span class="arrow">&#9650;</span>
-          <span class="count">${item.promotions}</span> Promote
-        </button>
       </div>
       ${responseHtml}
     `;

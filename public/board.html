@@ -11,7 +11,7 @@
     <h1>The Sanctuary</h1>
     <p class="tagline">Board Member Panel</p>
     <nav class="header-nav">
-      <a href="/">Back to Community Board</a>
+      <a href="/">Back to Resident View</a>
     </nav>
   </header>
 
@@ -23,9 +23,16 @@
       <button id="login-btn" class="btn btn-primary btn-sm">Authenticate</button>
     </div>
 
-    <!-- Admin Content (hidden until authenticated) -->
+    <!-- Board Content (hidden until authenticated) -->
     <section id="admin-content" style="display:none;">
-      <h2 class="section-title">All Submissions</h2>
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="public">Public</button>
+        <button class="filter-tab" data-filter="private">Private</button>
+        <button class="filter-tab" data-filter="unanswered">Needs Response</button>
+      </div>
+
       <div id="admin-list">
         <div class="empty-state">Loading...</div>
       </div>
@@ -38,6 +45,6 @@
 
   <div id="toast" class="toast"></div>
 
-  <script src="/js/admin.js"></script>
+  <script src="/js/board.js"></script>
 </body>
 </html>
