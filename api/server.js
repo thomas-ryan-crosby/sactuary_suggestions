@@ -20,15 +20,19 @@ function requireAdmin(req, res, next) {
 // Submit a suggestion
 app.post('/api/suggestions', async (req, res) => {
   try {
-    const { name, address, suggestion, is_private } = req.body;
+    const { name, address, email, phone, suggestion, is_private } = req.body;
 
     if (!name || !name.trim()) return res.status(400).json({ error: 'Name is required' });
     if (!address || !address.trim()) return res.status(400).json({ error: 'Address is required' });
+    if (!email || !email.trim()) return res.status(400).json({ error: 'Email is required' });
+    if (!phone || !phone.trim()) return res.status(400).json({ error: 'Phone number is required' });
     if (!suggestion || !suggestion.trim()) return res.status(400).json({ error: 'Suggestion is required' });
 
     const created = await db.createSuggestion({
       name: name.trim(),
       address: address.trim(),
+      email: (email || '').trim(),
+      phone: (phone || '').trim(),
       suggestion: suggestion.trim(),
       is_private: !!is_private,
     });

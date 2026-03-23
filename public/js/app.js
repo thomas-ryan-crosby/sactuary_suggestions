@@ -142,6 +142,8 @@
     const payload = {
       name: form.name.value.trim(),
       address: form.address.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
       suggestion: form.suggestion.value.trim(),
       is_private: form.is_private.checked,
     };

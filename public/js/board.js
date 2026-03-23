@@ -128,10 +128,13 @@
       ? '<span class="badge badge-responded">Responded</span>'
       : '<span class="badge badge-pending">Needs Response</span>';
 
+    const contactInfo = [item.email, item.phone].filter(Boolean).join(' · ');
+
     card.innerHTML = `
       <div class="admin-card-meta">
         <strong>${escapeHtml(item.name)}</strong>
         <span style="color:var(--color-muted); font-size:0.85rem;">${escapeHtml(item.address)}</span>
+        ${contactInfo ? `<span style="color:var(--color-muted); font-size:0.85rem;">${escapeHtml(contactInfo)}</span>` : ''}
         ${privacyBadge}
         ${responseBadge}
         <span class="badge badge-promotions">${item.promotions} promotion${item.promotions !== 1 ? 's' : ''}</span>
