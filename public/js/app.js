@@ -77,9 +77,11 @@
           <div class="card-author">${escapeHtml(item.name)}</div>
           <div class="card-address">${escapeHtml(item.address)}</div>
         </div>
-        <button class="promote-btn ${alreadyPromoted ? 'promoted' : ''}" data-id="${item.id}" ${alreadyPromoted ? 'disabled' : ''}>
+        <button class="promote-btn ${alreadyPromoted ? 'promoted' : ''}" data-id="${item.id}" ${alreadyPromoted ? 'disabled' : ''} title="${alreadyPromoted ? 'You promoted this' : 'Promote this suggestion'}">
           <span class="arrow">&#9650;</span>
           <span class="count">${item.promotions}</span>
+          <span class="promote-label">Promote</span>
+          <span class="promoted-label">Promoted</span>
         </button>
       </div>
       <div class="card-body">${escapeHtml(item.suggestion)}</div>
@@ -109,8 +111,12 @@
       if (res.ok) {
         const data = await res.json();
         btn.querySelector('.count').textContent = data.promotions;
-        btn.classList.add('promoted');
-        btn.disabled = true;
+        btn.classList.add('pop');
+        setTimeout(() => {
+          btn.classList.remove('pop');
+          btn.classList.add('promoted');
+          btn.disabled = true;
+        }, 300);
 
         const promoted = getPromotedSet();
         promoted.add(id);
