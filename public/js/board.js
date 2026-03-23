@@ -121,7 +121,7 @@
     card.className = 'admin-card';
 
     const privacyBadge = item.is_private
-      ? '<span class="badge badge-private">Private</span>'
+      ? '<span class="badge badge-private">⚠ Private</span>'
       : '<span class="badge badge-public">Public</span>';
 
     const responseBadge = item.board_response
